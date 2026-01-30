@@ -83,8 +83,23 @@
             <p class="small muted">
               This form uses your email app (no data is stored on the website).
             </p>
+            <form
+              class="form"
+              name="contact"
+              method="POST"
+              action="/thanks.html"
+              data-netlify="true"
+              
+              netlify-honeypot="bot-field"
+            >
+              <!-- required hidden field for Netlify -->
+              <input type="hidden" name="form-name" value="contact" />
 
-            <form class="form" action="mailto:rcolstuff@gmail.com" method="post" enctype="text/plain">
+              <!-- spam honeypot -->
+              <p style="display:none;">
+                <label>Don’t fill this out: <input name="bot-field" /></label>
+              </p>
+
               <label class="field">
                 <span class="label">Your name</span>
                 <input class="input" type="text" name="name" required />
@@ -112,12 +127,14 @@
                 <textarea class="input textarea" name="message" rows="6" required></textarea>
               </label>
 
-              <button class="btn btn-primary btn-block" type="submit">Open email to send</button>
+              <button class="btn btn-primary btn-block" type="submit">Send message</button>
 
               <p class="small muted">
-                Prefer direct email? Write to <a class="text-link" href="mailto:rcolstuff@gmail.com">rcolstuff@gmail.com</a>.
+                Prefer direct email? Write to
+                <a class="text-link" href="mailto:rcolstuff@gmail.com">rcolstuff@gmail.com</a>.
               </p>
             </form>
+          
           </section>
         </div>
       </div>
