@@ -160,22 +160,25 @@ a:hover{ text-decoration:underline; }
   min-width: 240px;
 }
 .page-head-media{
-  flex: 0 1 320px;
-  width: 100%;
-  max-width: 360px;
+  flex: 0 0 320px;     /* keep a fixed space in the layout */
+  width: 320px;        /* fixed width */
+  height: 240px;       /* fixed height (adjust as desired) */
+  max-width: none;     /* override your current max-width behavior */
   margin: 0;
 }
 .page-head-photo{
   width: 100%;
-  height: auto;
-  max-height: 200px;
+  height: 100%;
+  max-height: none;    /* remove the 200px cap */
+  object-fit: contain; /* key change: show full image, no cropping */
+  object-position: center;
+
   border-radius: var(--radius);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   background: rgba(17,31,54,.25);
-  object-fit: cover;
-  object-position: center top;
-  aspect-ratio: 4 / 3;
+
+  aspect-ratio: auto;  /* don’t force crop via a fixed ratio */
 }
 
 .section-head{
@@ -521,5 +524,5 @@ a:hover{ text-decoration:underline; }
 
   /* NEW: stack page-head split on mobile */
   .page-head-split{ flex-direction: column; align-items: flex-start; }
-  .page-head-media{ max-width: 100%; }
+  .page-head-media{ max-width: 100%; max-width: 360px; height: 240px;}
 }
