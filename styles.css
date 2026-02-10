@@ -222,6 +222,14 @@ a:hover{ text-decoration:underline; }
   max-width: 62ch;
 }
 
+.lead2{
+  margin:0 0 1.25rem;
+  font-size: 1.5rem;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+
 .quick-facts{
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
