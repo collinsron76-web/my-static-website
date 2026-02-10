@@ -136,7 +136,7 @@ a:hover{ text-decoration:underline; }
 }
 
 /* Layout blocks */
-.section{ padding: 3.25rem 0; }
+.section{ padding: 2.5rem 0; }
 .section-alt{
   background: linear-gradient(180deg, rgba(17,31,54,.32), rgba(17,31,54,.10));
   border-top: 1px solid var(--border);
@@ -198,6 +198,16 @@ a:hover{ text-decoration:underline; }
   gap: 1.25rem;
   align-items:start;
 }
+
+/* Hero image sizing */
+.hero-photo{
+  max-width: 70%;        /* reduce image size (try 65–75%) */
+  height: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  justify-self: end;     /* keeps image aligned to the right column */
+}
+
 
 .hero-content h1{
   margin:0 0 .9rem;
@@ -380,7 +390,7 @@ a:hover{ text-decoration:underline; }
 
 /* Banner */
 .banner{
-  margin-top: 1.75rem;
+  margin-top: 0;
   padding: 1.25rem 1.25rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
