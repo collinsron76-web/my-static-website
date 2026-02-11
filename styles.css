@@ -136,7 +136,7 @@ a:hover{ text-decoration:underline; }
 }
 
 /* Layout blocks */
-.section{ padding: 3.25rem 0; }
+.section{ padding: 2.5rem 0; }
 .section-alt{
   background: linear-gradient(180deg, rgba(17,31,54,.32), rgba(17,31,54,.10));
   border-top: 1px solid var(--border);
@@ -146,6 +146,39 @@ a:hover{ text-decoration:underline; }
   padding: 2.25rem 0 1.25rem;
   border-bottom: 1px solid var(--border);
   background: linear-gradient(180deg, rgba(17,31,54,.25), transparent);
+}
+
+/* NEW: Page head split layout (text left, photo right) */
+.page-head-split{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 1.25rem;
+}
+.page-head-text{
+  flex: 1 1 520px;
+  min-width: 240px;
+}
+.page-head-media{
+  flex: 0 0 320px;     /* keep a fixed space in the layout */
+  width: 320px;        /* fixed width */
+  height: 240px;       /* fixed height (adjust as desired) */
+  max-width: none;     /* override your current max-width behavior */
+  margin: 0;
+}
+.page-head-photo{
+  width: 100%;
+  height: 100%;
+  max-height: none;    /* remove the 200px cap */
+  object-fit: contain; /* key change: show full image, no cropping */
+  object-position: center;
+
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: rgba(17,31,54,.25);
+
+  aspect-ratio: auto;  /* don’t force crop via a fixed ratio */
 }
 
 .section-head{
@@ -166,6 +199,16 @@ a:hover{ text-decoration:underline; }
   align-items:start;
 }
 
+/* Hero image sizing */
+.hero-photo{
+  max-width: 70%;        /* reduce image size (try 65–75%) */
+  height: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  justify-self: end;     /* keeps image aligned to the right column */
+}
+
+
 .hero-content h1{
   margin:0 0 .9rem;
   font-size: clamp(2rem, 4vw, 3rem);
@@ -178,6 +221,14 @@ a:hover{ text-decoration:underline; }
   color: var(--muted);
   max-width: 62ch;
 }
+
+.lead2{
+  margin:0 0 1.25rem;
+  font-size: 1.5rem;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
 
 .quick-facts{
   display:grid;
@@ -347,7 +398,7 @@ a:hover{ text-decoration:underline; }
 
 /* Banner */
 .banner{
-  margin-top: 1.75rem;
+  margin-top: 0;
   padding: 1.25rem 1.25rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
@@ -488,4 +539,8 @@ a:hover{ text-decoration:underline; }
   .header-inner{ align-items:flex-start; }
   .brand{ min-width: unset; }
   .contact-item{ grid-template-columns: 1fr; }
+
+  /* NEW: stack page-head split on mobile */
+  .page-head-split{ flex-direction: column; align-items: flex-start; }
+  .page-head-media{ max-width: 100%; max-width: 360px; height: 240px;}
 }
